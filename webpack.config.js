@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -11,6 +12,8 @@ module.exports = {
   context: __dirname + '/src',
   entry: [
     './js/index.js',
+    require.resolve('./polyfills'),
+    'babel-polyfill',
     require.resolve('react-dev-utils/webpackHotDevClient')
   ],
   output: {
@@ -26,6 +29,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: ["babel-loader"]
+      },
+      {
+        test: /\.(scss)$/,
+        loader: "style-loader!css-loader!sass-loader"
       }
     ]
   },

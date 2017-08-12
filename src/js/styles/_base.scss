@@ -1,0 +1,19 @@
+html, body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background: #464646;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-scrollbar-face-color: #ddd;
+  -webkit-scollbar-track-color: #fff;
+  -webkit-scrollbar-arrow-color: #fff;
+  -webkit-scrollbar-shadow-color: #fff;
+  -webkit-scrollbar-width: 2px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
