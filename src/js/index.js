@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 const supportsHistory = 'pushState' in window.history;
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -13,12 +13,18 @@ const createStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore);
 export const store = createStoreWithMiddleware(reducers);
 
 import App from './components/App';
+import SearchView from './components/SearchView';
+import DetailsView from './components/DetailsView';
+
 require('./styles/index.scss');
+import 'font-awesome/scss/font-awesome.scss';
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router forceRefresh={!supportsHistory}>
+    <Router>
       <App>
-
+        <Route exact path="/" component={SearchView} />
+        <Route exact path="/details/:movieId" component={DetailsView} />
       </App>
     </Router>
   </Provider>,

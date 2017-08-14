@@ -1,2 +1,9 @@
 @import 'variables';
 @import 'base';
+
+#root {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

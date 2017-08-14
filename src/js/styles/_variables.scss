@@ -1,2 +1,12 @@
-$background-color: #464646 !default;
+$background-color: #DFDFDF !default;
 $primary-text-color: white !default;
+
+$dark-red: #94090D;
+$medium-red: #D40D12;
+$light-red: #FF1D23;
+$primary-dark: #292929;
+
+/*breakpoints*/
+$break-phone: "only screen and (max-width : 767px)";
+$break-tablet: "only screen and (min-width: 768px) and (max-width: 1024px)";
+$break-desktop: "only screen and (min-width : 1025px)";

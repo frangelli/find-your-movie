@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { } from '../actions';
 import MovieListItem from './MovieListItem';
 
+require('./MoviesList.scss');
 class MoviesList extends Component {
 
   constructor(props) {

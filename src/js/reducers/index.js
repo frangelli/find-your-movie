@@ -1,4 +1,5 @@
 import moviesExtractor from '../utils/moviesExtractor';
+import { movieDetailsExtractor } from '../utils/moviesExtractor';
 
 const defaultState = {
   searchTerm: '',
@@ -16,6 +17,7 @@ import {
 
 export default (state = defaultState, action) => {
   let movies = [];
+  let selectedMovieDetails = {};
 
   switch (action.type) {
 
@@ -31,8 +33,8 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, {movies, searchHasBeenMade: true});
 
     case GET_MOVIE_DETAILS:
-      console.log(action.payload.data);
-      return Object.assign({}, state, {selectedMovieDetails: action.payload.data});
+      selectedMovieDetails = (action.payload.data) ? movieDetailsExtractor(action.payload.data) : {};
+      return Object.assign({}, state, {selectedMovieDetails: selectedMovieDetails});
 
     default:
       return state;

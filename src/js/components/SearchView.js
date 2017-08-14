@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 
 import { applicationStarted } from '../actions';
 import SearchField from './SearchField';
 import MoviesList from './MoviesList';
+import Header from './Header';
 
-require('./App.scss');
-class App extends Component {
+require('./SearchView.scss');
+class SearchView extends Component {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        {this.props.children}
+        <Header />
+        <SearchField />
+        <MoviesList />
       </div>
     );
   }
@@ -39,4 +41,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default connect(mapStateToProps, mapDispatchToProps)(SearchView);

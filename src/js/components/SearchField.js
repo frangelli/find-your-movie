@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import { searchTermChanged, search } from '../actions';
 
+require('./SearchField.scss');
 class SearchField extends Component {
 
   constructor(props) {
@@ -11,6 +11,11 @@ class SearchField extends Component {
 
     this.search = this.search.bind(this);
     this.onSearchTermChange = this.onSearchTermChange.bind(this);
+  }
+
+  componentDidMount() {
+    const inputField = document.querySelector('.search-field');
+    inputField.focus();
   }
 
   onSearchTermChange(evt) {
@@ -27,8 +32,10 @@ class SearchField extends Component {
     return (
       <div className="search-field-wrapper">
         <form onSubmit={this.search}>
-          <input type="text" onChange={this.onSearchTermChange} />
-          <button type="submit">Search</button>
+          <input className="search-field" type="text"
+            placeholder="Search your movie by part of the title..."
+            onChange={this.onSearchTermChange} />
+          <button className="btn-search" type="submit">Search</button>
         </form>
       </div>
     );

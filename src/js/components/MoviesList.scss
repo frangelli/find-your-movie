@@ -1,0 +1,10 @@
+@import '../styles/_variables';
+
+.movies-list-wrapper {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
